@@ -1,0 +1,22 @@
+<div class="container top30">
+	<div class="row">
+		<div class="col-md-3">
+			<label for='termino'>Buscar Artista</label>
+			<input type="text" placeholder="Ingrese Palabra Clave" class="form-control" (keyup)="buscarArtistas()" [(ngModel)]="termino">
+		</div>
+		<div class="col-md-9" *ngIf="termino.length < 1"><h1 class="greyletter">Buscar Artista</h1><hr>
+			<p>Encuentre lo que guste dentro de una gran selección de artistas.</p>
+		</div>
+		<div class="col-md-9" *ngIf="termino.length > 1">
+			<h1>{{termino}}</h1>
+			<hr>
+			<div class="row">
+				<div *ngFor="let artista of _spotify.artistas" class="col-md-3 text-center cuadro top30" [routerLink]="['/artistas', artista.id]">
+					<img [src]="artista.images | sinfoto" class="img-thumbnail"><!-- obtengo la imagen del artista desde su url. El atributo viene del objeto de la API. USO EL PIPE-->
+					<h5>{{artista.name}}</h5>
+					<p>Seguidores: {{artista.followers.total}}</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

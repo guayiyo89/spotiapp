@@ -1,0 +1,41 @@
+<div class="container top30">
+	<div class="row">
+
+		<div class="col-md-3">
+			<img [src]="album.images | sinfoto" class="img-thumbnail border-dark">
+			<iframe class="top30" [src]="album.uri | domseguro:'https://open.spotify.com/embed?uri='" width="100%" height="80" frameborder="0" allowtransparency="true"></iframe>
+		</div>
+
+		<div class="col-md-9">
+			<h1>{{album.name}}</h1><hr>
+			<h3>{{album.artists[0].name}} - {{album.release_date | date:"y"}}</h3>
+			<h5>{{album.album_type}}</h5>
+			<ul class="lista_pro">
+				<li>
+					Sello: {{album.label}}
+				</li>
+				<li>
+					<i class="fa fa-line-chart" style="font-size:24px"></i> : {{album.popularity}}%
+				</li>
+			</ul>
+
+			<h2>Listado de Canciones</h2><hr>
+			<table class="table table-dark table-hover">
+			  <thead>
+			    <tr>
+			      <th scope="col">#</th>
+			      <th scope="col">Canción</th>
+			    </tr>
+			  </thead>
+			  <tbody>
+			    <tr *ngFor="let cancion of songs; let i = index">
+					<td>{{ i+1 }}</td>
+					<td>{{cancion.name}}</td>
+			    </tr>
+			  </tbody>
+			</table>
+			<span class="rights-copy">{{album.copyrights[0].text}}</span>
+		</div>
+
+	</div>
+</div>

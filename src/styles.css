@@ -1,1 +1,134 @@
-/* You can add global styles to this file, and also import other style files */
+body{
+  background-color: black;
+  color: white !important;
+}
+
+hr{
+  border-color: white;
+}
+
+.jumbotron{
+  background-color: #171717;
+}
+
+.puntero{
+  cursor: pointer;
+}
+
+.carousel-item{
+  width: 100%;
+  height: 500px;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+@media (max-width: 600px) {
+  .carousel-item {
+    height: 280px;
+  }
+}
+
+
+.main-container{
+  margin-top: 30px;
+}
+
+.img-circle{
+  border-radius: 100%;
+}
+
+
+/* Animaciones */
+.animated {
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+.fast {
+  -webkit-animation-duration: 0.4s;
+  animation-duration: 0.4s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.fadeIn {
+  animation-name: fadeIn;
+}
+
+.top30{
+  margin-top: 30px;
+}
+
+.yellowtext{
+  color: #ffc107;
+  background-color: #000000bd;
+}
+
+.cuadro{
+  cursor: pointer;
+  border-radius: 10px;
+  min-height: 320px;
+}
+
+.cuadro:hover{
+  background-color: #3d3d3d;
+}
+
+.img-thumbnail{
+  border-color: black;
+}
+
+.img-circular{
+  border-radius: 100%;
+}
+
+.img50{
+  max-width: 50px;
+}
+
+.nav-item{
+  transition: all 0.5s;
+  height: 100%;
+}
+
+.nav-item:hover{
+  background-color: #000000b3;
+}
+
+.greyletter{
+  color: #353535;
+}
+
+h2.overtitle{
+  height: 50px;
+  overflow: hidden;
+}
+
+.lista_pro{
+  list-style: none;
+  padding-left: 10px;
+}
+
+.to-bottom{
+  width: 100%;
+  bottom: 0;
+  position: fixed;
+  margin: 0 auto;
+  font-size: 11px !important;
+  padding: 1em;
+  text-align: right;
+}

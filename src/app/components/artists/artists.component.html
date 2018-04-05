@@ -1,0 +1,53 @@
+<div class="container top30">
+<div class="row">
+<div class="col md-3">
+	<img [src]="artista.images | sinfoto" class="img-thumbnail border-dark">
+</div>
+	<div class="col-md-9">
+		<h1>
+	  	{{artista.name}}
+		</h1>
+		<hr>
+		<ul class="lista_pro">
+			<li>
+				<i class="fa fa-users" style="font-size:24px"></i> : {{artista.followers.total}} seguidores
+			</li>
+			<li>
+				<i class="fa fa-music" style="font-size:24px"></i> :  <span *ngFor="let genero of artista.genres"> {{genero}}, </span>
+			</li>
+		</ul>
+		<a [href]="artista.external_urls?.spotify" target="_blank" class="btn btn-outline-success">Abrir <i class="fa fa-spotify" style="font-size:18px"></i></a>
+		<button type="button" class="btn btn-outline-danger" [routerLink]="['/search']">Regresar</button>
+	</div>
+</div>
+<h3 class="top30">{{artista.name}} - TopTracks</h3>
+<hr>
+<table class="table table-dark table-hover">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Canción</th>
+      <th scope="col">Popularidad</th>
+      <th scope="col">Escuchar</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let cancion of songs; let i = index">
+		<td>{{ i+1 }}</td>
+		<td>{{cancion.name}}</td>
+		<td>{{cancion.popularity}}%</td>
+		<td>
+			 <iframe [src]="cancion.uri | domseguro:'https://open.spotify.com/embed?uri='" width="300" height="80" frameborder="0" allowtransparency="true"></iframe>
+		</td>
+    </tr>
+  </tbody>
+</table>
+<h3 class="top30">{{artista.name}} - Albumes</h3><hr>
+<div class="row">
+	<div class="col-md-3 text-center" *ngFor="let album of discos">
+	<img [src]="album.images | sinfoto" class="img-thumbnail">
+		<h5>{{album.name}}</h5>
+		<i class="fa fa-calendar" style="font-size:24px"></i> {{album.release_date | date:"y"}}
+	</div>
+</div>
+</div>

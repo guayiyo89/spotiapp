@@ -1,0 +1,27 @@
+<div class="container top30">
+<div class="row">
+<div class="col md-3">
+	<img [src]="cancion.album.images | sinfoto" class="img-thumbnail border-dark">
+</div>
+	<div class="col-md-9">
+		<h1>
+	  	{{cancion.name}}
+		</h1>
+		<h4>{{cancion.album.artists[0].name}} - {{cancion.album.name}}</h4>
+		<hr>
+		<ul class="lista_pro">
+			<li>
+				<i class="fa fa-line-chart" style="font-size:24px"></i> : {{cancion.popularity}}%
+			</li>
+			<li>
+				<i class="fa fa-music" style="font-size:24px"></i> : {{cancion.album.release_date | date:"y"}} 
+			</li>
+		</ul>
+		<button type="button" class="btn btn-outline-danger" [routerLink]="['/search-song']">Regresar</button>
+		<button type="button" class="btn btn-outline-warning" [routerLink]="['/search-song']">Ver Album</button>
+		<button type="button" class="btn btn-outline-success" [routerLink]="['/search-song']">Ver Artista</button><br>
+		<iframe class="top30" [src]="cancion.uri | domseguro:'https://open.spotify.com/embed?uri='" width="300" height="80" frameborder="0" allowtransparency="true"></iframe>
+	</div>
+</div>
+<hr>
+</div>

@@ -1,0 +1,33 @@
+<div class="container top30">
+	<div class="row">
+		<div class="col-md-3">
+			<label for='termino'>Buscar Canción</label>
+			<input type="text" placeholder="Ingrese Palabra" class="form-control" (keyup)="buscaSong()" [(ngModel)]="termino">
+		</div>
+		<div class="col-md-9" *ngIf="termino.length < 1"><h1 class="greyletter">Buscar Canción</h1><hr>
+			<p>Una biblioteca con más de 15000 canciones.</p>
+		</div>
+		<div class="col-md-9" *ngIf="termino.length > 1">
+			<h1>{{termino}}</h1>
+			<hr>
+			<table class="table table-dark table-hover">
+				<thead>
+					<th></th>
+					<th>Tema</th>
+					<th>Artista</th>
+					<th>Album</th>
+					<th>Año</th>
+				</thead>
+				<tbody>
+					<tr class="puntero" *ngFor="let cancion of _spotify.canciones" [routerLink]="['/canciones', cancion.id]">
+						<td><img [src]="cancion.album.images | sinfoto" class="img50"></td>
+						<td>{{cancion.name}}</td>
+						<td>{{cancion.album.artists[0].name}}</td>
+						<td>{{cancion.album.name}}</td>
+						<td>{{cancion.album.release_date | date:"y"}}</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
